@@ -20,11 +20,15 @@ public class GameEvent
 public class EventOption
 {
     public string initialText;
-    public int stress;
-    // TODO: add result types
-    public EventOption(string initialText, string resultText, int stress = 0)
+    public string resultText;
+    public Dictionary<string, int> reqDict;
+    public Dictionary<string, int> resultDict;
+
+    public EventOption(string initialText, string resultText)
     {
         this.initialText = initialText;
-        this.stress = stress;
+        this.resultText = resultText;
+        this.reqDict = new Dictionary<string, int>();
+        this.resultDict = new Dictionary<string, int>();
     }
 }
