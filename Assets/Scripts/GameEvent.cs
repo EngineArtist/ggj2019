@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
 public class GameEvent
 {
     public string mainMessage;
     public List<EventOption> options;
-
+    
     public GameEvent(string mainMessage)
     {
         this.mainMessage = mainMessage;
@@ -16,6 +16,7 @@ public class GameEvent
     
 }
 
+[System.Serializable]
 public class EventOption
 {
     public string initialText;
