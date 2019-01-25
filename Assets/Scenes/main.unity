@@ -142,6 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b465bb85a3f24a4b995af675168b6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUDcomponent: {fileID: 2144735072310740397, guid: 647b1acf8abaf0540a5380d95a7a0906,
+    type: 3}
+  HUDhull: {fileID: 0}
+  HUDenergy: {fileID: 0}
+  HUDpopulation: {fileID: 0}
 --- !u!4 &168283581
 Transform:
   m_ObjectHideFlags: 0
