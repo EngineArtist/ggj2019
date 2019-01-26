@@ -144,7 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HUDcomponent: {fileID: 2144735072310740397, guid: 647b1acf8abaf0540a5380d95a7a0906,
     type: 3}
-  spaceship: {fileID: 0}
+  spaceship: {fileID: 7700358226010438649, guid: 528189110038e9646b21ddbf6d9b8956,
+    type: 3}
   spaceObjects:
   - {fileID: 0}
 --- !u!4 &168283581

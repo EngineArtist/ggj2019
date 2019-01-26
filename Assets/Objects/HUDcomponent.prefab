@@ -79,12 +79,12 @@ TextMesh:
   m_GameObject: {fileID: 2144735072310740397}
   m_Text: Text
   m_OffsetZ: 0
-  m_CharacterSize: 0.03
+  m_CharacterSize: 0.02
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 255
+  m_FontSize: 300
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
