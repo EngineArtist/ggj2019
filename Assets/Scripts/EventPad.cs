@@ -10,14 +10,16 @@ public class EventPad : MonoBehaviour
     public string typingText = "";
     public float typeSpeed = 24.0f;
     public float typedLength = 0.0f;
-    public int lineWidth = 35;
+    public int lineWidth = 33;
     // Button GameObject; corresponding amount of responses will be created to the pad as there are alternatives
     public GameObject padButton;
     private TextMesh childTextMesh;
     // List of buttons created on the run
-
+    private List<GameObject> buttons;
     // When the user presses a button, select the corresponding integer to represent the event choice
-    public int userchoice = 0;
+    public int index = 0;
+    // When event choice is done, next click will get rid of event pad
+    private bool destroyClick = false;
     // The GameEvent corresponding to this event pad
     private GameEvent ge;
 
@@ -62,7 +64,8 @@ public class EventPad : MonoBehaviour
         //this.setText(this.wholeText, 35);
         //this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0.8f, 8));
         this.childTextMesh = this.GetComponentInChildren<TextMesh>();
-
+        // Format lists
+        this.buttons = new List<GameObject>();
     }
 
     // Set the particular Game Event
@@ -79,19 +82,37 @@ public class EventPad : MonoBehaviour
         for (int i = 0; i < ge.options.Count; i++)
         {
             Debug.Log("Creating button: " + i);
+            // Run-time creation and positioning of the event decision buttons
             tmp = GameObject.Instantiate(this.padButton);
             tmp.transform.parent = this.gameObject.transform;
             tmp.GetComponent<ButtonScript>().setIndex(i);
             tmp.transform.position = new Vector3(0, -1+i*(-1.0f), 1);
             tmp.transform.localScale = new Vector3(7, 0.5f, 1);
             tmp.GetComponentInChildren<TextMesh>().text = ge.options[i].initialText;
+            //this.buttons.Add(tmp);
         }
     }
 
     public void ButtonDown(int index)
     {
-        this.setText(ge.options[index].resultText, lineWidth);
-        this.typedLength = 0;
+        if (!destroyClick) {
+            this.index = index;
+            Debug.Log("Decision click");
+            this.setText(ge.options[index].resultText, lineWidth);
+            this.typedLength = 0;
+            // Get rid of buttons
+            foreach (GameObject b in buttons)
+            {
+                Debug.Log("Destroying button");
+                GameObject.Destroy(b.gameObject);
+            }
+            destroyClick = true;
+        }
+        else {
+            GameObject.Find("Homebound").GetComponent<GameMaster>().ResolveEvent(ge.options[index].resultDict);
+            Debug.Log("Destroy click");
+            GameObject.Destroy(this.gameObject);
+        }
         //Debug.Log("Button " + index + " pressed");
     }
 

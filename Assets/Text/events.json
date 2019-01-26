@@ -398,5 +398,61 @@
       }
     ]
   },
+  {
+    "id": "016",
+    "description": "Captain, our ship has been infected by electronics-dissolving fungi!",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "I don't believe in 'puter eatin' mushrooms.",
+        "result": "The fungal infection thrives, degrading hull integrity and energy storage.",
+        "requirement": { },
+        "resource": { "hull": -10, "energy" -10 }
+      },
+      {
+        "id": "02",
+        "description": "Send Mr. Redshirt to take care of it.",
+        "result": "The second crewmate finishes the job. Some damage is prevented.",
+        "requirement": { "population": 2 },
+        "resource": { "population": -1, "hull": -5 }
+      },
+      {
+        "id": "03",
+        "description": "Vent poison everywhere! Nothing must threaten my gaming gear!",
+        "result": "Some crewmen forget to wear their masks. The PlayStation remains intact.",
+        "requirement": { "energy": 1 },
+        "resource": { "population": -3, "energy" -1 }
+      }
+    ]
+  },
+  {
+    "id": "017",
+    "description": "Captain, the inhabitants of Madra V wish to send their best and brightest as recruits.",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "Welcome aboard! We will begin training immediately.",
+        "result": "Some accidents cause structural damage, but the recruits are eventually assimilated.",
+        "requirement": { },
+        "resource": { "population": 10, "hull": -5 }
+      },
+      {
+        "id": "02",
+        "description": "No, you lot are the epitome of incompetence.",
+        "result": "Madra V declares war on Earth (but no one cares).",
+        "requirement": { },
+        "resource": { }
+      },
+      {
+        "id": "03",
+        "description": "Yes, they will be my personal servants.",
+        "result": "They replace the previous ones.",
+        "requirement": { },
+        "resource": { }
+      }
+    ]
+  },
   ]
 }

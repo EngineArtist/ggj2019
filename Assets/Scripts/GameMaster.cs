@@ -93,6 +93,20 @@ public class GameMaster : MonoBehaviour
         HUDobjects.Add("distancetraveled", tmp);
     }
 
+    // Update only a particular resource on the HUD
+    private void updateHUD(string component)
+    {
+        switch (component)
+        {
+            case "hull":
+                HUDobjects[component].GetComponent<TextMesh>().text = component + ": " + resources[component] + "%";
+                break;
+            default:
+                HUDobjects[component].GetComponent<TextMesh>().text = component + ": " + (int) resources[component];
+                break;
+        }
+    }
+
     // Update a text mesh displaying something on the HUD
     private void updateHUD(string component, double newvalue)
     {
@@ -141,11 +155,23 @@ public class GameMaster : MonoBehaviour
             GameObject tmp = GameObject.Instantiate(this.HUDevent);
             tmp.GetComponent<EventPad>().setGE(currentEvent);
         }
+        else
+        {
+
+        }
     }
 
-    private void ResolveEvent(GameEvent ge)
+    public void ResolveEvent(Dictionary<string, int> result)
     {
-
+        Debug.Log("Modified resources count: " + result.Count);
+        foreach (KeyValuePair<string, int> kvp in result)
+        {
+            Debug.Log("Key: " + kvp.Key + " Val: " + kvp.Value);
+            resources[kvp.Key] += kvp.Value;
+            updateHUD(kvp.Key);
+        }
+        this.progressActive = true;
+        this.eventActivated = false;
     }
 
     // Time triggered spontaneous events
