@@ -20,7 +20,7 @@ public class EventMaster : MonoBehaviour
         this.rand = new System.Random();
     }
 
-    GameEvent GetRandomEvent()
+    public GameEvent GetRandomEvent()
     {
         int index = this.rand.Next(allEvents.Count);
         return this.allEvents[index];
