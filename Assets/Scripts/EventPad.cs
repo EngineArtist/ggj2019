@@ -10,7 +10,7 @@ public class EventPad : MonoBehaviour
     public string typingText = "";
     public float typeSpeed = 24.0f;
     public float typedLength = 0.0f;
-    public int lineWidth = 40;
+    public int lineWidth = 35;
     // Button GameObject; corresponding amount of responses will be created to the pad as there are alternatives
     public GameObject padButton;
     private TextMesh childTextMesh;
@@ -76,7 +76,7 @@ public class EventPad : MonoBehaviour
         // Go trough button creation process
         GameObject tmp;
         // Create the required amount of response buttons to an event on the run
-        for (int i = 1; i < ge.options.Count; i++)
+        for (int i = 0; i < ge.options.Count; i++)
         {
             Debug.Log("Creating button: " + i);
             tmp = GameObject.Instantiate(this.padButton);
