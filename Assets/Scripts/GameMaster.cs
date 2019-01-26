@@ -31,6 +31,9 @@ public class GameMaster : MonoBehaviour
         vars = new Dictionary<string, double>();
         // Game is on by default
         progressActive = true;
+        // Event trigger logic
+        vars.Add("timeToEvent", 10.0f);
+        vars.Add("eventSpeed", 1.0f);
         // Create the HUD
         CreateHUD();
         // Set default values for the various resources
@@ -40,9 +43,7 @@ public class GameMaster : MonoBehaviour
         // Dynamically allocated array of objects in space
         spaceObjects = new List<GameObject>();
         // Game specific variables
-        // Event trigger logic
-        vars.Add("timeToEvent", 10.0f);
-        vars.Add("eventSpeed", 1.0f);
+
     }
 
     // Create an interface for the player
@@ -88,18 +89,24 @@ public class GameMaster : MonoBehaviour
         if (progressActive)
         {
             // Logic for generating new events in real time
-            //timeToEvent -= eventSpeed * Time.deltaTime;
+            vars["timeToEvent"] -= vars["eventSpeed"] * Time.deltaTime;
             // Trigger an event
-            //if(timeToEvent < 0) 
-            //{
+            if(vars["timeToEvent"] < 0) 
+            {
                 // Event logic
-            //}
+
+                // Reset time to next event
+
+            }
             // Logic for space progression
         } 
         // Otherwise in menus or in an event yet to be resolved
         else
         {
             // Event scripts and/or menu state machine
+
+            // After event is resolved, resume gaming
+
         }
     }
 }
