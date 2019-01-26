@@ -5,6 +5,7 @@
     "option":
     [
       {
+        "id": "02"
         "description": "Jettison the coolant pod.",
         "result": "The crew detaches the coolant pod. It glides into the cold eternity of space.",
         "requirement": {
@@ -14,6 +15,7 @@
         }
       },
       {
+        "id": "02"
         "description": "Vent some fuel into the coolant bay.",
         "result": "The fuel is toxic to the sauronids. They all die a hideous death.",
         "requirement": {
