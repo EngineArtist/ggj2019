@@ -1,0 +1,42 @@
+{"event": [
+  {
+    "id": "001",
+    "description": "Captain, it looks like some sauronids snuck into the ship on our last stop, and are now nesting in one of the coolant pods. What should we do?",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "Jettison the coolant pod.",
+        "result": "The crew detaches the coolant pod. It glides into the cold eternity of space.",
+        "requirement": {
+        },
+        "resource": {
+          "hull": -1
+        }
+      },
+      {
+        "id": "02",
+        "description": "Vent some fuel into the coolant bay.",
+        "result": "The fuel is toxic to the sauronids. They all die a hideous death.",
+        "requirement": {
+          "fuel": 1
+        },
+        "resource": {
+          "fuel": -1
+        }
+      },
+      {
+        "id": "03",
+        "description": "Organize a crew to hunt them down.",
+        "result": "The hunting party is a great success. Only one crew member is lost.",
+        "requirement": {
+          "crew": 10
+        },
+        "resource": {
+          "crew": -1
+        }
+      }
+    ]
+  }	
+  ]
+}

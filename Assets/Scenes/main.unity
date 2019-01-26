@@ -144,8 +144,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HUDcomponent: {fileID: 2144735072310740397, guid: 647b1acf8abaf0540a5380d95a7a0906,
     type: 3}
-  spaceship: {fileID: 0}
-  spaceObjects: []
+  spaceship: {fileID: 7700358226010438649, guid: 528189110038e9646b21ddbf6d9b8956,
+    type: 3}
+  spaceObjects:
+  - {fileID: 0}
 --- !u!4 &168283581
 Transform:
   m_ObjectHideFlags: 0
@@ -263,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216584045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
