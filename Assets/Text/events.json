@@ -37,6 +37,215 @@
         }
       }
     ]
-  }	
+  },
+  {
+    "id": "002",
+    "description": "Captain, a Cylorean marauder ship has appeared out of nowhere. They are known for their cruel and unusual ways.",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "Send some crew members as tribute.",
+        "result": "The Cyloreans are well pleased with their new toys.",
+        "requirement": {
+          "population": 5
+        },
+        "resource": {
+          "population": -5
+        }
+      },
+      {
+        "id": "02",
+        "description": "Blow them out of the sky!",
+        "result": "The marauders put up quite a fight!",
+        "requirement": {
+        },
+        "resource": {
+          "hull": -11,
+          "population": -1
+        }
+      },
+      {
+        "id": "03",
+        "description": "Engineering, overload the engines and get us out of here!",
+        "result": "The engines wail under the stress, but you escape.",
+        "requirement": {
+          "energy": 5
+        },
+        "resource": {
+          "energy": -5,
+          "hull": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "003",
+    "description": "RED SHIRT: Captain, I'm stuck on this planet and the natives seem restless. Requesting immediate evacuation!",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "It has been an honor serving with you. Lieutenant, take us out of here.",
+        "result": "It is a sad day, but RED SHIRT will be remembered.",
+        "requirement": {
+        },
+        "resource": {
+          "population": -1
+        }
+      },
+      {
+        "id": "02",
+        "description": "Commence orbital bombardment.",
+        "result": "The planet takes on a nice shade of grey.",
+        "requirement": {
+        },
+        "resource": {
+          "population": -1
+        }
+      },
+      {
+        "id": "03",
+        "description": "Send a shuttle to fetch the poor bastard.",
+        "result": "RED SHIRT is relieved.",
+        "requirement": {
+          "energy": 1
+        },
+        "resource": {
+          "energy": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "004",
+    "description": "Captain, we have encountered a dense asteroid field. Should we detour?",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "Push through! We have no time to waste.",
+        "result": "Some minor objects smash into the ship.",
+        "requirement": {
+        },
+        "resource": {
+          "hull": -3
+        }
+      },
+      {
+        "id": "02",
+        "description": "Try to avoid the worst of it, but maintain the course.",
+        "result": "'Tis but a scratch.",
+        "requirement": {
+          "energy": 1
+        },
+        "resource": {
+          "hull": -1,
+          "energy": -1
+        }
+      },
+      {
+        "id": "03",
+        "description": "Keep a wide berth. We can't risk the ship now.",
+        "result": "Better safe than sorry!",
+        "requirement": {
+          "energy": 2
+        },
+        "resource": {
+          "energy": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "005",
+    "description": "Captain, some peaceful Kolnari traders are pinging us.",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "Buy some fuel with crew.",
+        "result": "The dismayed look in their eyes disturbs you... but fuel is fuel.",
+        "requirement": {
+          "population" : 2
+        },
+        "resource": {
+          "population": -2,
+          "energy": 5
+        }
+      },
+      {
+        "id": "02",
+        "description": "Buy some replacement parts with crew.",
+        "result": "Sometimes you have to take one for the team.",
+        "requirement": {
+          "population" : 2
+        },
+        "resource": {
+          "population": -2,
+          "hull": 10
+        }
+      },
+      {
+        "id": "03",
+        "description": "Ignore them.",
+        "result": "The traders resent your impolite manner.",
+        "requirement": {
+        },
+        "resource": {
+        }
+      },
+      {
+        "id": "04",
+        "description": "Just take their wares by force. Who travels without weapons?",
+        "result": "Free fuel and parts!",
+        "requirement": {
+          "energy": 1
+        },
+        "resource": {
+          "energy": 5,
+          "hull": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "006",
+    "description": "Captain, flu has broken out among the crew!",
+    "option":
+    [
+      {
+        "id": "01",
+        "description": "Who cares? The officers are immunized.",
+        "result": "You brush the casualty report away while you enjoy you afternoon tea.",
+        "requirement": {
+        },
+        "resource": {
+          "population": -10
+        }
+      },
+      {
+        "id": "02",
+        "description": "Detour to buy aid from the nearest hospital.",
+        "result": "The automated hospital replaces the defective crew members for a minor cost.",
+        "requirement": {
+          "energy" : 2
+        },
+        "resource": {
+          "energy": -2
+        }
+      },
+      {
+        "id": "03",
+        "description": "Flush the infected ones through the airlock to protect the rest.",
+        "result": "Quite a lot of air was lost, but some losses must be accepted.",
+        "requirement": {
+        },
+        "resource": {
+          "population": -3
+        }
+      }
+    ]
+  }
   ]
 }
