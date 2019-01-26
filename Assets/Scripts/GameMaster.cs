@@ -138,12 +138,14 @@ public class GameMaster : MonoBehaviour
             Debug.Log("Current event id activated: " + currentEvent.id);
             // After event is resolved, resume gaming
             eventActivated = true;
+            GameObject tmp = GameObject.Instantiate(this.HUDevent);
+            tmp.GetComponent<EventPad>().setGE(currentEvent);
         }
-        // Active event requires player input
-        else
-        {
+    }
 
-        }
+    private void ResolveEvent(GameEvent ge)
+    {
+
     }
 
     // Time triggered spontaneous events

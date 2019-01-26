@@ -10,7 +10,12 @@ public class EventPad : MonoBehaviour
     public string typingText = "";
     public float typeSpeed = 24.0f;
     public float typedLength = 0.0f;
+    public int lineWidth = 40;
+    // Button GameObject; corresponding amount of responses will be created to the pad as there are alternatives
+    public GameObject padButton;
     private TextMesh childTextMesh;
+    // List of buttons created on the run
+
     // When the user presses a button, select the corresponding integer to represent the event choice
     public int userchoice = 0;
     // The GameEvent corresponding to this event pad
@@ -54,9 +59,40 @@ public class EventPad : MonoBehaviour
     void Start()
     {
         // Start cutting text into lines
-        this.setText(this.wholeText, 35);
+        //this.setText(this.wholeText, 35);
         //this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0.8f, 8));
         this.childTextMesh = this.GetComponentInChildren<TextMesh>();
+
+    }
+
+    // Set the particular Game Event
+    public void setGE(GameEvent ge)
+    {
+        // Save the game event to the pad
+        this.ge = ge;
+        // Take the event text from the particular event
+        this.setText(ge.mainMessage, lineWidth);
+
+        // Go trough button creation process
+        GameObject tmp;
+        // Create the required amount of response buttons to an event on the run
+        for (int i = 1; i < ge.options.Count; i++)
+        {
+            Debug.Log("Creating button: " + i);
+            tmp = GameObject.Instantiate(this.padButton);
+            tmp.transform.parent = this.gameObject.transform;
+            tmp.GetComponent<ButtonScript>().setIndex(i);
+            tmp.transform.position = new Vector3(0, -1+i*(-1.0f), 1);
+            tmp.transform.localScale = new Vector3(7, 0.5f, 1);
+            tmp.GetComponentInChildren<TextMesh>().text = ge.options[i].initialText;
+        }
+    }
+
+    public void ButtonDown(int index)
+    {
+        this.setText(ge.options[index].resultText, lineWidth);
+        this.typedLength = 0;
+        //Debug.Log("Button " + index + " pressed");
     }
 
     // Update is called once per frame
@@ -69,4 +105,5 @@ public class EventPad : MonoBehaviour
             this.childTextMesh.text = wholeText.Substring(0, Mathf.Min(wholeText.Length, (int) this.typedLength));
         }
     }
+
 }

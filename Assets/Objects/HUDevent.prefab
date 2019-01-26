@@ -189,10 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e24296afbeca894580af71b315f7dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sinepos: 0.5
   wholeText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet,
     mauris a lacinia condimentum, nunc libero finibus mi, nec hendrerit eros lectus
     ac lectus. '
   typingText: 
   typeSpeed: 48
   typedLength: 0
+  padButton: {fileID: 3510911046763003427, guid: b65f7ee896b21734eb983f9b138b4329,
+    type: 3}
+  userchoice: 0
