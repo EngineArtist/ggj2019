@@ -50,16 +50,16 @@ public class EventMaster : MonoBehaviour
 
             foreach (JSONObject gameEvent in events)
             {
+                string id = gameEvent["id"];
                 string mainMessage = gameEvent["description"];
-                GameEvent ge = new GameEvent(mainMessage);
+                
+                GameEvent ge = new GameEvent(id, mainMessage);
 
                 foreach (JSONObject eventOption in gameEvent["option"])
                 {
-                    Debug.Log(eventOption);
+                    string optionId = eventOption["id"].Value;
                     string optionMsg = eventOption["description"].Value;
-                    Debug.Log(optionMsg);
                     string resultMsg = eventOption["result"].Value;
-                    Debug.Log(resultMsg);
                     Dictionary<string, int> reqDict = new Dictionary<string, int>();
                     Dictionary<string, int> resultDict = new Dictionary<string, int>();
 
@@ -69,7 +69,6 @@ public class EventMaster : MonoBehaviour
                         int value = kvp.Value;
                         
                         reqDict[key] = value;
-                        Debug.Log(key + ": " + reqDict[key]);
                     }
 
                     foreach (KeyValuePair<string, SimpleJSON.JSONNode> kvp in eventOption["resource"])
@@ -78,10 +77,9 @@ public class EventMaster : MonoBehaviour
                         int value = kvp.Value;
 
                         resultDict[key] = value;
-                        Debug.Log(key + ": " + resultDict[key]);
                     }
 
-                    EventOption opt = new EventOption(optionMsg, resultMsg, reqDict, resultDict);
+                    EventOption opt = new EventOption(optionId, optionMsg, resultMsg, reqDict, resultDict);
                     ge.options.Add(opt);
                 }
 
