@@ -57,13 +57,13 @@
   },
   {
     "id": "003",
-    "description": "RED SHIRT: Captain, I'm stuck on this planet and the natives seem restless. Requesting immediate evacuation!",
+    "description": "Redshirt: Captain, I'm stuck on this planet and the natives seem restless. Requesting immediate evacuation!",
     "option":
     [
       {
         "id": "01",
         "description": "It has been an honor serving with you. Lieutenant, take us out of here.",
-        "result": "It is a sad day, but RED SHIRT will be remembered.",
+        "result": "It is a sad day, but the name of Richard Redshirt will be remembered.",
         "requirement": { },
         "resource": { "population": -1 }
       },
@@ -77,7 +77,7 @@
       {
         "id": "03",
         "description": "Send a shuttle to fetch the poor bastard.",
-        "result": "RED SHIRT is relieved. He lives to die another day.",
+        "result": "Redshirt is relieved. He lives to die another day.",
         "requirement": { "energy": 1 },
         "resource": { "energy": -1 }
       }
