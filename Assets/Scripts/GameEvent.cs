@@ -24,11 +24,11 @@ public class EventOption
     public Dictionary<string, int> reqDict;
     public Dictionary<string, int> resultDict;
 
-    public EventOption(string initialText, string resultText)
+    public EventOption(string initialText, string resultText, Dictionary<string, int> reqDict, Dictionary<string, int> resultDict)
     {
         this.initialText = initialText;
         this.resultText = resultText;
-        this.reqDict = new Dictionary<string, int>();
-        this.resultDict = new Dictionary<string, int>();
+        this.reqDict = reqDict;
+        this.resultDict = resultDict;
     }
 }
