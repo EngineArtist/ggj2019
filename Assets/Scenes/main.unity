@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -144,9 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HUDcomponent: {fileID: 2144735072310740397, guid: 647b1acf8abaf0540a5380d95a7a0906,
     type: 3}
-  HUDhull: {fileID: 0}
-  HUDenergy: {fileID: 0}
-  HUDpopulation: {fileID: 0}
+  spaceship: {fileID: 0}
+  spaceObjects: []
 --- !u!4 &168283581
 Transform:
   m_ObjectHideFlags: 0
@@ -184,13 +183,10 @@ MonoBehaviour:
     - initialText: I will challenge the captain of the marauder ship to a game of
         wits...
       resultText: 
-      subOptions: []
     - initialText: Lieutenant, blast them out of the sky!
       resultText: 
-      subOptions: []
     - initialText: Let's outrun those fools. Engineering, engines to the max!
       resultText: 
-      subOptions: []
 --- !u!1 &216584045
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,3 +269,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1071831785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7700358226010438649, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_Name
+      value: Spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433797194587469283, guid: 528189110038e9646b21ddbf6d9b8956,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 528189110038e9646b21ddbf6d9b8956, type: 3}
