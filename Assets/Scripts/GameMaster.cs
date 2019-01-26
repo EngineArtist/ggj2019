@@ -6,10 +6,13 @@ public class GameMaster : MonoBehaviour
 {
     // Whether the spaceship animation / flying is active
     private bool progressActive;
-
-    // HUD components
+    private bool eventActivated;
+    // Whether an event is currently on-going
+    private GameEvent currentEvent;
     // General HUD component
     public GameObject HUDcomponent;
+    // General event display screen
+    public GameObject HUDevent;
     // Spaceship
     public GameObject spaceship;
     // Specific HUD components that are updated on the run
@@ -20,7 +23,8 @@ public class GameMaster : MonoBehaviour
     public Dictionary<string, double> vars;
     // Objects in space
     public List<GameObject> spaceObjects;
-
+    // Reference to the EventMaster
+    private EventMaster em;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +34,14 @@ public class GameMaster : MonoBehaviour
         vars = new Dictionary<string, double>();
         // Game is on by default
         progressActive = true;
+        eventActivated = false;
         // Event trigger logic
         vars.Add("baseTimeToEvent", 6.0f);
         vars.Add("timeToEvent", 6.0f);
         vars.Add("eventSpeed", 1.0f);
         vars.Add("difficulty", 1.0f);
         vars.Add("distanceTraveled", 0.0f);
+        vars.Add("shipSpeed", 2.0f);
         // Create the HUD
         CreateHUD();
         // Set default values for the various resources
@@ -46,6 +52,8 @@ public class GameMaster : MonoBehaviour
         spaceObjects = new List<GameObject>();
         // Game specific variables
 
+        // Game event master script
+        em = this.GetComponent<EventMaster>();
     }
 
     // Create an interface for the player
@@ -57,17 +65,17 @@ public class GameMaster : MonoBehaviour
         // {0,0} is lower-left corner, {1,1} is top-right and the 3rd component is the depth
         // Hull 
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 10));
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 8));
         tmp.GetComponent<TextMesh>().text = "Hull";
         HUDobjects.Add("hull", tmp);
         // Energy
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 1, 10));
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 1, 8));
         tmp.GetComponent<TextMesh>().text = "Energy";
         HUDobjects.Add("energy", tmp);
         // Population
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.6f, 1, 10));
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.6f, 1, 8));
         tmp.GetComponent<TextMesh>().text = "Population";
         HUDobjects.Add("population", tmp);
         // Base HUD update
@@ -77,9 +85,12 @@ public class GameMaster : MonoBehaviour
         // HUD COMPONENTS INTENDED FOR DEBUGGING
         // Time until next event
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.1f, 10));
-        tmp.GetComponent<TextMesh>().text = "TimerToEvent " + vars["timeToEvent"];
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.1f, 8));
         HUDobjects.Add("timertoevent", tmp);
+        // Distance traveled
+        tmp = GameObject.Instantiate(HUDcomponent);
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.4f, 0.1f, 8));
+        HUDobjects.Add("distancetraveled", tmp);
     }
 
     // Update a text mesh displaying something on the HUD
@@ -104,24 +115,33 @@ public class GameMaster : MonoBehaviour
             // Logic for generating new events in real time
             vars["timeToEvent"] -= vars["eventSpeed"] * Time.deltaTime;
             updateHUD("timertoevent", vars["timeToEvent"]);
+            // When the progression is active, update the distance traveled in space
+            vars["distanceTraveled"] += vars["shipSpeed"] * Time.deltaTime;
+            // Logic for space progression
+            // Keep a counter for distance traveled
+            updateHUD("distancetraveled", vars["distanceTraveled"]);
             // Trigger an event
             if(vars["timeToEvent"] < 0) 
             {
+                // Halt space progress
+                progressActive = false;
                 // Event logic
                 TriggerTimeEvent();
                 // Reset time to next event
                 vars["timeToEvent"] = vars["baseTimeToEvent"];
             }
-            // Logic for space progression
-            // Keep a counter for distance traveled
-            vars["distanceTraveled"] += vars["distanceTraveled"] * Time.deltaTime;
         } 
         // Otherwise in menus or in an event yet to be resolved
-        else
+        else if(!eventActivated)
         {
             // Event scripts and/or menu state machine
-
+            Debug.Log("Current event id activated: " + currentEvent.id);
             // After event is resolved, resume gaming
+            eventActivated = true;
+        }
+        // Active event requires player input
+        else
+        {
 
         }
     }
@@ -129,7 +149,8 @@ public class GameMaster : MonoBehaviour
     // Time triggered spontaneous events
     private void TriggerTimeEvent()
     {
-       
+        // Temporary solution is to just generate a random event to solve
+        currentEvent = em.GetRandomEvent();
     }
 }
 
