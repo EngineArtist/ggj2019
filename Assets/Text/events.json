@@ -36,15 +36,15 @@
         "id": "01",
         "description": "Send some crew members as tribute.",
         "result": "The Cyloreans are well pleased with their new toys.",
-        "requirement": { "population": 5 },
-        "resource": { "population": -5 }
+        "requirement": { "crew": 5 },
+        "resource": { "crew": -5 }
       },
       {
         "id": "02",
         "description": "Blow them out of the sky!",
         "result": "The marauders put up quite a fight!",
         "requirement": {},
-        "resource": { "hull": -11, "population": -1 }
+        "resource": { "hull": -11, "crew": -1 }
       },
       {
         "id": "03",
@@ -65,14 +65,14 @@
         "description": "It has been an honor serving with you. Lieutenant, take us out of here.",
         "result": "It is a sad day, but the name of Richard Redshirt will be remembered.",
         "requirement": { },
-        "resource": { "population": -1 }
+        "resource": { "crew": -1 }
       },
       {
         "id": "02",
         "description": "Commence orbital bombardment.",
         "result": "The planet takes on a nice shade of grey.",
         "requirement": { },
-        "resource": { "population": -1 }
+        "resource": { "crew": -1 }
       },
       {
         "id": "03",
@@ -120,15 +120,15 @@
         "id": "01",
         "description": "Buy some fuel with crew.",
         "result": "The dismayed look in their eyes disturbs you... but fuel is fuel.",
-        "requirement": { "population" : 2 },
-        "resource": { "population": -2, "energy": 5 }
+        "requirement": { "crew": 2 },
+        "resource": { "crew": -2, "energy": 5 }
       },
       {
         "id": "02",
         "description": "Buy some replacement parts with crew.",
         "result": "Sometimes you have to take one for the team.",
-        "requirement": { "population" : 2 },
-        "resource": { "population": -2, "hull": 10 }
+        "requirement": { "crew": 2 },
+        "resource": { "crew": -2, "hull": 10 }
       },
       {
         "id": "03",
@@ -156,13 +156,13 @@
         "description": "Who cares? The officers are immunized.",
         "result": "You brush the casualty report away while enjoying your afternoon tea.",
         "requirement": { },
-        "resource": { "population": -10 }
+        "resource": { "crew": -10 }
       },
       {
         "id": "02",
         "description": "Detour to buy aid from the nearest hospital.",
         "result": "The automated hospital replaces the defective crew members for a minor cost.",
-        "requirement": { "energy" : 2 },
+        "requirement": { "energy": 2 },
         "resource": { "energy": -2 }
       },
       {
@@ -170,7 +170,7 @@
         "description": "Flush the infected ones through the airlock to protect the rest.",
         "result": "Quite a lot of air was lost, but some losses must be accepted.",
         "requirement": { },
-        "resource": { "population": -3 }
+        "resource": { "crew": -3 }
       }
     ]
   },
@@ -191,7 +191,7 @@
         "description": "Make a special effort to water and nurture the plant.",
         "result": "It grows, becoming an above-average crew member.",
         "requirement": { },
-        "resource": { "population": 1 }
+        "resource": { "crew": 1 }
       }
     ]
   },
@@ -219,7 +219,7 @@
         "description": "Capture the crew.",
         "result": "After a speedy chase and short negotiations, the crew is willing to join you.",
         "requirement": { "energy": 2 },
-        "resource": { "population": 7, "energy": -2 }
+        "resource": { "crew": 7, "energy": -2 }
       }
     ]
   },
@@ -233,7 +233,7 @@
         "description": "Make a daring pass along the edge to capture some fuel.",
         "result": "The radiation is bad for both crew and ship, but you did catch a lot of fuel.",
         "requirement": { "energy": 1 },
-        "resource": { "energy": 10, "population": -1, "hull": -1 }
+        "resource": { "energy": 10, "crew": -1, "hull": -1 }
       },
       {
         "id": "02",
@@ -254,7 +254,7 @@
         "description": "I could do with some relaxation. Approved!",
         "result": "After the brief stop, the tally shows additional crew members. No one can explain.",
         "requirement": {},
-        "resource": { "population": 7 }
+        "resource": { "crew": 7 }
       },
       {
         "id": "02",
@@ -268,7 +268,7 @@
         "description": "Mutiny! Flush this fool through the airlock!",
         "result": "The young ensign learned his lesson. Discipline is much improved.",
         "requirement": {},
-        "resource": { "population": -1 }
+        "resource": { "crew": -1 }
       }
     ]
   },
@@ -317,7 +317,7 @@
         "description": "We have a no pet policy on this ship.",
         "result": "The chief engineer becomes the first newt to be flushed into space.",
         "requirement": {},
-        "resource": { "population": -1 }
+        "resource": { "crew": -1 }
       }
     ]
   },
@@ -359,7 +359,7 @@
         "description": "We will determine this with a Pokemon tournament between the factions.",
         "result": "The required devices are fabricated, and ritual combat is successfully concluded.",
         "requirement": { "energy": 1 },
-        "resource": { "energy" -1 }
+        "resource": { "energy": -1 }
       },
       {
         "id": "03",
@@ -380,14 +380,14 @@
         "description": "Send a probe to investigate.",
         "result": "The probe is unable to locate the beacon for some reason.",
         "requirement": { "energy": 1 },
-        "resource": { "energy" -1}
+        "resource": { "energy": -1}
       },
       {
         "id": "02",
         "description": "Send a shuttle to investigate.",
         "result": "Richard Redshirt is killed, but salvaging the beacon fortunately yields some fuel.",
-        "requirement": { "population": 5, "energy": 1 },
-        "resource": { "population": -1, "energy" 5 }
+        "requirement": { "crew": 5, "energy": 1 },
+        "resource": { "crew": -1, "energy": 5 }
       },
       {
         "id": "03",
@@ -408,21 +408,21 @@
         "description": "I don't believe in 'puter eatin' mushrooms.",
         "result": "The fungal infection thrives, degrading hull integrity and energy storage.",
         "requirement": { },
-        "resource": { "hull": -10, "energy" -10 }
+        "resource": { "hull": -10, "energy": -10 }
       },
       {
         "id": "02",
         "description": "Send Mr. Redshirt to take care of it.",
         "result": "The second crewmate finishes the job. Some damage is prevented.",
-        "requirement": { "population": 2 },
-        "resource": { "population": -1, "hull": -5 }
+        "requirement": { "crew": 2 },
+        "resource": { "crew": -1, "hull": -5 }
       },
       {
         "id": "03",
         "description": "Vent poison everywhere! Nothing must threaten my gaming gear!",
         "result": "Some crewmen forget to wear their masks. The PlayStation remains intact.",
         "requirement": { "energy": 1 },
-        "resource": { "population": -3, "energy" -1 }
+        "resource": { "crew": -3, "energy": -1 }
       }
     ]
   },
@@ -436,7 +436,7 @@
         "description": "Welcome aboard! We will begin training immediately.",
         "result": "Some accidents cause structural damage, but the recruits are eventually assimilated.",
         "requirement": { },
-        "resource": { "population": 10, "hull": -5 }
+        "resource": { "crew": 10, "hull": -5 }
       },
       {
         "id": "02",

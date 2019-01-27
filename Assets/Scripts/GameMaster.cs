@@ -47,7 +47,7 @@ public class GameMaster : MonoBehaviour
         // Set default values for the various resources
         resources.Add("hull", 100);
         resources.Add("energy", 100);
-        resources.Add("population", 100);
+        resources.Add("crew", 100);
         // Dynamically allocated array of objects in space
         spaceObjects = new List<GameObject>();
         // Game specific variables
@@ -73,15 +73,15 @@ public class GameMaster : MonoBehaviour
         tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 1, 8));
         tmp.GetComponent<TextMesh>().text = "Energy";
         HUDobjects.Add("energy", tmp);
-        // Population
+        // crew
         tmp = GameObject.Instantiate(HUDcomponent);
         tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.6f, 1, 8));
-        tmp.GetComponent<TextMesh>().text = "Population";
-        HUDobjects.Add("population", tmp);
+        tmp.GetComponent<TextMesh>().text = "crew";
+        HUDobjects.Add("crew", tmp);
         // Base HUD update
         updateHUD("hull", 100.0f);
         updateHUD("energy", 100.0f);
-        updateHUD("population", 100.0f);
+        updateHUD("crew", 100.0f);
         // HUD COMPONENTS INTENDED FOR DEBUGGING
         // Time until next event
         tmp = GameObject.Instantiate(HUDcomponent);
@@ -94,15 +94,35 @@ public class GameMaster : MonoBehaviour
     }
 
     // Update only a particular resource on the HUD
-    private void updateHUD(string component)
+    private void updateHUD(string component, int blink)
     {
         switch (component)
         {
             case "hull":
                 HUDobjects[component].GetComponent<TextMesh>().text = component + ": " + resources[component] + "%";
+                // Blink the corresponding HUD component with red/green depending if it's an addition or subtraction 
+                if (blink > 0) {
+                    HUDobjects[component].AddComponent<ColorLerp>();
+                    HUDobjects[component].GetComponent<ColorLerp>().setColors(Color.green, Color.white);
+                }else if (blink < 0)
+                {
+                    HUDobjects[component].AddComponent<ColorLerp>();
+                    HUDobjects[component].GetComponent<ColorLerp>().setColors(Color.red, Color.white);
+                }
                 break;
             default:
                 HUDobjects[component].GetComponent<TextMesh>().text = component + ": " + (int) resources[component];
+                // Blink the corresponding HUD component with red/green depending if it's an addition or subtraction 
+                if (blink > 0)
+                {
+                    HUDobjects[component].AddComponent<ColorLerp>();
+                    HUDobjects[component].GetComponent<ColorLerp>().setColors(Color.green, Color.white);
+                }
+                else if (blink < 0)
+                {
+                    HUDobjects[component].AddComponent<ColorLerp>();
+                    HUDobjects[component].GetComponent<ColorLerp>().setColors(Color.red, Color.white);
+                }
                 break;
         }
     }
@@ -120,6 +140,22 @@ public class GameMaster : MonoBehaviour
                 break;
         }
     }
+
+    // Update a resource value
+    private void updateResource(string component, double newvalue)
+    {
+        // Update the value itself in the table of resources
+        switch (component) {
+            case "hull": // hull is capped at 100%
+                if (resources["hull"] + newvalue >= 100) resources["hull"] = 100;
+                else resources[component] += (int)newvalue;
+                break;
+            default:
+                resources[component] += (int)newvalue;
+                break;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -163,13 +199,13 @@ public class GameMaster : MonoBehaviour
 
     public void ResolveEvent(Dictionary<string, int> result)
     {
-        Debug.Log("Modified resources count: " + result.Count);
         foreach (KeyValuePair<string, int> kvp in result)
         {
-            Debug.Log("Key: " + kvp.Key + " Val: " + kvp.Value);
-            resources[kvp.Key] += kvp.Value;
-            updateHUD(kvp.Key);
+            // Update the corresponding resource variable as well as blink the HUD in the right direction (green = positive, red = negative)
+            updateResource(kvp.Key, kvp.Value);
+            updateHUD(kvp.Key, kvp.Value);
         }
+        // Resume spacefaring
         this.progressActive = true;
         this.eventActivated = false;
     }

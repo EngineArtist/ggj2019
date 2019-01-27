@@ -87,7 +87,7 @@ public class EventPad : MonoBehaviour
             tmp.transform.parent = this.gameObject.transform;
             tmp.GetComponent<ButtonScript>().setIndex(i);
             tmp.transform.position = new Vector3(0, -1+i*(-1.0f), 1);
-            tmp.transform.localScale = new Vector3(7, 0.5f, 1);
+            tmp.transform.localScale = new Vector3(1, 0.3f, 1);
             tmp.GetComponentInChildren<TextMesh>().text = ge.options[i].initialText;
             //this.buttons.Add(tmp);
         }
