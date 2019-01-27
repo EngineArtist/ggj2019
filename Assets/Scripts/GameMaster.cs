@@ -299,4 +299,14 @@ public class GameMaster : MonoBehaviour
         tmp.transform.position = GameObject.Find("Spaceship").transform.position;
         GameObject.Destroy(GameObject.Find("Spaceship"));
     }
+
+    public void OnMouseDown()
+    {
+        Debug.Log("Homebound clicked!");
+        if (this.endingActive)
+        {
+            // On click while ending is active the game will restart
+            Application.LoadLevel("main");
+        }
+    }
 }

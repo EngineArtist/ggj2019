@@ -48,7 +48,7 @@
       },
       {
         "id": "03",
-        "description": "Engineering, overload the engines and get us out of here!",
+        "description": "Engineering, overload the engines \n and get us out of here!",
         "result": "The engines wail under the stress, but you escape.",
         "requirement": { "energy": 5 },
         "resource": { "energy": -5, "hull": -2 }
@@ -62,7 +62,7 @@
     [
       {
         "id": "01",
-        "description": "It has been an honor serving with you. Lieutenant, take us out of here.",
+        "description": "It has been an honor serving with you. \n Lieutenant, take us out of here.",
         "result": "It is a sad day, but the name of Richard Redshirt will be remembered.",
         "requirement": { },
         "resource": { "crew": -1 }
@@ -97,14 +97,14 @@
       },
       {
         "id": "02",
-        "description": "Try to avoid the worst of it, but maintain the course.",
+        "description": "Try to avoid the worst of it, \n but maintain the course.",
         "result": "'Tis but a scratch.",
         "requirement": { "energy": 1 },
         "resource": { "hull": -1, "energy": -1 }
       },
       {
         "id": "03",
-        "description": "Keep a wide berth. We can't risk the ship now.",
+        "description": "Keep a wide berth. \n We can't risk the ship now.",
         "result": "Better safe than sorry!",
         "requirement": { "energy": 2 },
         "resource": { "energy": -2 }
@@ -139,7 +139,7 @@
       },
       {
         "id": "04",
-        "description": "Just take their wares by force. Who travels without weapons?",
+        "description": "Just take their wares by force. \n Who travels without weapons?",
         "result": "Free fuel and parts!",
         "requirement": { "energy": 1 },
         "resource": { "energy": 5, "hull": 10 }
@@ -153,21 +153,21 @@
     [
       {
         "id": "01",
-        "description": "Who cares? The officers are immunized.",
+        "description": "Who cares? \n The officers are immunized.",
         "result": "You brush the casualty report away while enjoying your afternoon tea.",
         "requirement": { },
         "resource": { "crew": -10 }
       },
       {
         "id": "02",
-        "description": "Detour to buy aid from the nearest hospital.",
+        "description": "Detour to buy aid from \n the nearest hospital.",
         "result": "The automated hospital replaces the defective crew members for a minor cost.",
         "requirement": { "energy": 2 },
         "resource": { "energy": -2 }
       },
       {
         "id": "03",
-        "description": "Flush the infected ones through the airlock to protect the rest.",
+        "description": "Flush the infected ones through \n the airlock to protect the rest.",
         "result": "Quite a lot of air was lost, but some losses must be accepted.",
         "requirement": { },
         "resource": { "crew": -3 }
@@ -188,7 +188,7 @@
       },
       {
         "id": "02",
-        "description": "Make a special effort to water and nurture the plant.",
+        "description": "Make a special effort to \n water and nurture the plant.",
         "result": "It grows, becoming an above-average crew member.",
         "requirement": { },
         "resource": { "crew": 1 }
@@ -230,7 +230,7 @@
     [
       {
         "id": "01",
-        "description": "Make a daring pass along the edge to capture some fuel.",
+        "description": "Make a daring pass along \n the edge to capture some fuel.",
         "result": "The radiation is bad for both crew and ship, but you did catch a lot of fuel.",
         "requirement": { "energy": 1 },
         "resource": { "energy": 10, "crew": -1, "hull": -1 }
@@ -251,7 +251,7 @@
     [
       {
         "id": "01",
-        "description": "I could do with some relaxation. Approved!",
+        "description": "I could do with some relaxation. \n Approved!",
         "result": "After the brief stop, the tally shows additional crew members. No one can explain.",
         "requirement": {},
         "resource": { "crew": 7 }
@@ -265,7 +265,7 @@
       },
       {
         "id": "03",
-        "description": "Mutiny! Flush this fool through the airlock!",
+        "description": "Mutiny! Flush this fool \n through the airlock!",
         "result": "The young ensign learned his lesson. Discipline is much improved.",
         "requirement": {},
         "resource": { "crew": -1 }
@@ -279,7 +279,7 @@
     [
       {
         "id": "01",
-        "description": "Bring her aboard, the more the merrier!",
+        "description": "Bring her aboard, \n the more the merrier!",
         "result": "The crew is badly distracted by the dignitary, resulting in accidents.",
         "requirement": { },
         "resource": { "hull": -2 }
@@ -391,8 +391,8 @@
       },
       {
         "id": "03",
-        "description": "Ignore it. We have better things to do than study ancient alien garbage.",
-        "result": "",
+        "description": "Ignore it. We have better things \n to do than study ancient alien garbage.",
+        "result": "But sir... :(",
         "requirement": { },
         "resource": { }
       }
@@ -419,7 +419,7 @@
       },
       {
         "id": "03",
-        "description": "Vent poison everywhere! Nothing must threaten my gaming gear!",
+        "description": "Vent poison everywhere! \n Nothing must threaten my gaming gear!",
         "result": "Some crewmen forget to wear their masks. The PlayStation remains intact.",
         "requirement": { "energy": 1 },
         "resource": { "crew": -3, "energy": -1 }
