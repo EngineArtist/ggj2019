@@ -40,7 +40,7 @@ public class GameMaster : MonoBehaviour
         vars.Add("timeToEvent", 6.0f);
         vars.Add("eventSpeed", 1.0f);
         vars.Add("difficulty", 1.0f);
-        vars.Add("distanceTraveled", 0.0f);
+        vars.Add("distanceEarth", 200.0f);
         vars.Add("shipSpeed", 2.0f);
         // Create the HUD
         CreateHUD();
@@ -48,6 +48,7 @@ public class GameMaster : MonoBehaviour
         resources.Add("hull", 100);
         resources.Add("energy", 100);
         resources.Add("crew", 100);
+        resources.Add("gameStatus", 0);
         // Dynamically allocated array of objects in space
         spaceObjects = new List<GameObject>();
         // Game specific variables
@@ -70,27 +71,22 @@ public class GameMaster : MonoBehaviour
         HUDobjects.Add("hull", tmp);
         // Energy
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 1, 8));
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.35f, 1, 8));
         tmp.GetComponent<TextMesh>().text = "Energy";
         HUDobjects.Add("energy", tmp);
         // crew
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.6f, 1, 8));
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 1, 8));
         tmp.GetComponent<TextMesh>().text = "crew";
         HUDobjects.Add("crew", tmp);
         // Base HUD update
         updateHUD("hull", 100.0f);
         updateHUD("energy", 100.0f);
         updateHUD("crew", 100.0f);
-        // HUD COMPONENTS INTENDED FOR DEBUGGING
-        // Time until next event
+        // Distance to Earth
         tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0, 0.1f, 8));
-        HUDobjects.Add("timertoevent", tmp);
-        // Distance traveled
-        tmp = GameObject.Instantiate(HUDcomponent);
-        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.4f, 0.1f, 8));
-        HUDobjects.Add("distancetraveled", tmp);
+        tmp.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0.1f, 8));
+        HUDobjects.Add("distanceearth", tmp);
     }
 
     // Update only a particular resource on the HUD
@@ -164,12 +160,11 @@ public class GameMaster : MonoBehaviour
         {
             // Logic for generating new events in real time
             vars["timeToEvent"] -= vars["eventSpeed"] * Time.deltaTime;
-            updateHUD("timertoevent", vars["timeToEvent"]);
             // When the progression is active, update the distance traveled in space
-            vars["distanceTraveled"] += vars["shipSpeed"] * Time.deltaTime;
+            vars["distanceEarth"] -= vars["shipSpeed"] * Time.deltaTime;
             // Logic for space progression
             // Keep a counter for distance traveled
-            updateHUD("distancetraveled", vars["distanceTraveled"]);
+            updateHUD("distanceearth", vars["distanceEarth"]);
             // Trigger an event
             if(vars["timeToEvent"] < 0) 
             {
@@ -216,18 +211,16 @@ public class GameMaster : MonoBehaviour
         // Temporary solution is to just generate a random event to solve
         currentEvent = em.GetRandomEvent();
     }
-}
 
-public class HUDwrapper{
-    private string name;
-    private double val;
-
-    public string Name { get => name; set => name = value; }
-    public double Val { get => val; set => val = value; }
-
-    // Create a string representation of the HUDcomponent
-    public override string ToString()
+    // Player wins the game; int indicates the type of win
+    private void TriggerWin(int type)
     {
-        return name + ": " + val;
+
+    }
+
+    // Player loses the game; int indicates what type of loss occurs
+    private void TriggerLoss(int type)
+    {
+
     }
 }

@@ -15,7 +15,7 @@ public class EventPad : MonoBehaviour
     public GameObject padButton;
     private TextMesh childTextMesh;
     // List of buttons created on the run
-    private List<GameObject> buttons;
+    private List<GameObject> buttons = new List<GameObject>();
     // When the user presses a button, select the corresponding integer to represent the event choice
     public int index = 0;
     // When event choice is done, next click will get rid of event pad
@@ -64,8 +64,6 @@ public class EventPad : MonoBehaviour
         //this.setText(this.wholeText, 35);
         //this.transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0.8f, 8));
         this.childTextMesh = this.GetComponentInChildren<TextMesh>();
-        // Format lists
-        this.buttons = new List<GameObject>();
     }
 
     // Set the particular Game Event
@@ -89,7 +87,7 @@ public class EventPad : MonoBehaviour
             tmp.transform.position = new Vector3(0, -1+i*(-1.0f), 1);
             tmp.transform.localScale = new Vector3(1, 0.3f, 1);
             tmp.GetComponentInChildren<TextMesh>().text = ge.options[i].initialText;
-            //this.buttons.Add(tmp);
+            this.buttons.Add(tmp.gameObject);
         }
     }
 
@@ -97,23 +95,24 @@ public class EventPad : MonoBehaviour
     {
         if (!destroyClick) {
             this.index = index;
-            Debug.Log("Decision click");
             this.setText(ge.options[index].resultText, lineWidth);
             this.typedLength = 0;
             // Get rid of buttons
             foreach (GameObject b in buttons)
             {
-                Debug.Log("Destroying button");
                 GameObject.Destroy(b.gameObject);
             }
             destroyClick = true;
         }
-        else {
+    }
+
+    public void OnMouseDown()
+    {
+        if (destroyClick)
+        {
             GameObject.Find("Homebound").GetComponent<GameMaster>().ResolveEvent(ge.options[index].resultDict);
-            Debug.Log("Destroy click");
             GameObject.Destroy(this.gameObject);
         }
-        //Debug.Log("Button " + index + " pressed");
     }
 
     // Update is called once per frame

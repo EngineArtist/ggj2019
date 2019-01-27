@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7744367648688751769}
   - component: {fileID: 2635809610220198276}
   - component: {fileID: 7759440819273402237}
+  - component: {fileID: 2052726509685218971}
   m_Layer: 0
   m_Name: HUDevent
   m_TagString: Untagged
@@ -195,6 +196,33 @@ MonoBehaviour:
   typingText: 
   typeSpeed: 48
   typedLength: 0
+  lineWidth: 33
   padButton: {fileID: 3510911046763003427, guid: b65f7ee896b21734eb983f9b138b4329,
     type: 3}
-  userchoice: 0
+  index: 0
+--- !u!61 &2052726509685218971
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922892475960583636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
+    newSize: {x: 1.01, y: 0.23}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.28, y: 1.28}
+  m_EdgeRadius: 0
