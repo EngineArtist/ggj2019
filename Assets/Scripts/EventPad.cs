@@ -95,7 +95,7 @@ public class EventPad : MonoBehaviour
     {
         if (!destroyClick) {
             this.index = index;
-            this.setText(ge.options[index].resultText + "\n [Click to dismiss]", lineWidth);
+            this.setText(ge.options[index].resultText + " \n[Click]", lineWidth);
             this.typedLength = 0;
             // Get rid of buttons
             foreach (GameObject b in buttons)

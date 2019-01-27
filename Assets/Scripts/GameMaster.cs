@@ -162,7 +162,7 @@ public class GameMaster : MonoBehaviour
                 }
                 else
                 {
-                    HUDobjects[component].GetComponent<TextMesh>().text = "Earth! But was the ship your true home?";
+                    HUDobjects[component].GetComponent<TextMesh>().text = "Earth... but was space your true home?";
                 }
                 break;
             default:

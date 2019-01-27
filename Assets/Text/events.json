@@ -349,21 +349,21 @@
     [
       {
         "id": "01",
-        "description": "They are all quite mistaken. In fact, Pokemen Yellow...",
+        "description": "They are all quite mistaken. \nIn fact, Pokemen Yellow...",
         "result": "The argument erupts in violence. Luckily no one is killed.",
         "requirement": { },
         "resource": { }
       },
       {
         "id": "02",
-        "description": "We will determine this with a Pokemon tournament between the factions.",
+        "description": "We will determine this with a \nPokemon tournament between the factions.",
         "result": "The required devices are fabricated, and ritual combat is successfully concluded.",
         "requirement": { "energy": 1 },
         "resource": { "energy": -1 }
       },
       {
         "id": "03",
-        "description": "Hah, those games are for children! Speaking of it will be considered mutiny.",
+        "description": "Hah, those games are for children! \nSpeaking of it will be considered mutiny.",
         "result": "With grudging silence, the captain's quarters are vandalized in protest.",
         "requirement": { },
         "resource": { "hull": -1 }
