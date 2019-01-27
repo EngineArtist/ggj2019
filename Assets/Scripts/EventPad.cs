@@ -95,7 +95,7 @@ public class EventPad : MonoBehaviour
     {
         if (!destroyClick) {
             this.index = index;
-            this.setText(ge.options[index].resultText, lineWidth);
+            this.setText(ge.options[index].resultText + "\n [Click to dismiss]", lineWidth);
             this.typedLength = 0;
             // Get rid of buttons
             foreach (GameObject b in buttons)
@@ -106,6 +106,7 @@ public class EventPad : MonoBehaviour
         }
     }
 
+    // Once the destroy click is allowed after resolving an event we can dismiss an event pad by just clicking anywhere on it
     public void OnMouseDown()
     {
         if (destroyClick)

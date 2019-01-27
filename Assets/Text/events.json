@@ -15,8 +15,8 @@
         "id": "02",
         "description": "Vent some fuel into the coolant bay.",
         "result": "The fuel is toxic to the sauronids. They all die a hideous death.",
-        "requirement": { "fuel": 1 },
-        "resource": { "fuel": -1 }
+        "requirement": { "energy": 1 },
+        "resource": { "energy": -1 }
       },
       {
         "id": "03",
