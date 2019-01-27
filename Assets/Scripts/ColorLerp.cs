@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorLerp : MonoBehaviour
 {
     public Color32 startColor = Color.white;
-    public Color32 endColor = Color.black;
+    public Color32 endColor = Color.white;
     public float progress = 0.0f;
     public float progressSpeed = 0.5f;
     public TextMesh textMeshComponent;
